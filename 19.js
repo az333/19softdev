@@ -84,46 +84,42 @@ document.getElementById('maleP').innerHTML = malePer(popdata2) + '%';
 
 
 
-//=========median age of the population --- dunno how to do this :((
+//=========median age of the population --- given up :((
 
-function medAge(data){
-	var medPos = Math.round(totalPop(data)/2);
-	var popbyAge = data.map(function(x){
-		return x.females + x.males;
-	});
-	var allAbove = data.filter(function(x){
-		x.males + x.females > medPos;
-	});
-	console.log(allAbove);
+// function medAge(data){
+// 	var medPos = Math.round(totalPop(data)/2);
+// 	var popbyAge = data.map(function(x){
+// 		return x.females + x.males;
+// 	});
+// 	var allAbove = data.filter(function(x){
+// 		x.males + x.females > medPos;
+// 	});
+// 	console.log(allAbove);
 
-	var accuList = data.map(function(x){
-		if (data.indexOf(x) > 0){
-			return x.males + x.females + data[data.indexOf(x)-1].males + data[data.indexOf(x)-1].females;
-		}	
-		else{
-			return x.males + x.females;
-		}
-	});
-	console.log( "accuList: " + accuList);
+// 	var accuList = data.map(function(x){
+// 		if (data.indexOf(x) > 0){
+// 			return x.males + x.females + data[data.indexOf(x)-1].males + data[data.indexOf(x)-1].females;
+// 		}	
+// 		else{
+// 			return x.males + x.females;
+// 		}
+// 	});
+// 	console.log( "accuList: " + accuList);
 
-	var firstAbove =  accuList.filter(function(x){
-		return x >= medPos;
-	});
+// 	var firstAbove =  accuList.filter(function(x){
+// 		return x >= medPos;
+// 	});
 
-	console.log("medpos " + medPos);
-	console.log("first above: " + firstAbove[1]);
-	return firstAbove[0];
-}
-
-
-
-medAge(popdata);
+// 	console.log("medpos " + medPos);
+// 	console.log("first above: " + firstAbove[1]);
+// 	return firstAbove[0];
+// }
 
 
 
+// medAge(popdata);
 
 
-//random stuff...
 
 // 	var accuList = data.map(function(x){
 // 		tmp = popbyAge.reduce
