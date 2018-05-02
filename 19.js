@@ -77,18 +77,75 @@ function malePer(data){
 	return Math.round(result * 100000) / 1000;
 }
 
-console.log(malePer(popdata2));
+//console.log(malePer(popdata2));
 
 document.getElementById('maleP').innerHTML = malePer(popdata2) + '%';
 
 
 
 
-//=========median age
+//=========median age of the population --- dunno how to do this :((
 
 function medAge(data){
-	
+	var medPos = Math.round(totalPop(data)/2);
+	var popbyAge = data.map(function(x){
+		return x.females + x.males;
+	});
+	var allAbove = data.filter(function(x){
+		x.males + x.females > medPos;
+	});
+	console.log(allAbove);
+
+	var accuList = data.map(function(x){
+		if (data.indexOf(x) > 0){
+			return x.males + x.females + data[data.indexOf(x)-1].males + data[data.indexOf(x)-1].females;
+		}	
+		else{
+			return x.males + x.females;
+		}
+	});
+	console.log( "accuList: " + accuList);
+
+	var firstAbove =  accuList.filter(function(x){
+		return x >= medPos;
+	});
+
+	console.log("medpos " + medPos);
+	console.log("first above: " + firstAbove[1]);
+	return firstAbove[0];
 }
+
+
+
+medAge(popdata);
+
+
+
+
+
+//random stuff...
+
+// 	var accuList = data.map(function(x){
+// 		tmp = popbyAge.reduce
+// 	})
+
+// 	var previousSum = data.reduce
+
+
+
+// 	//console.log(medNum);
+// 	if (data.reduce(function(a,b){
+// 		console.log(a + b.females + b.males);
+// 		return a + b.females + b.males;
+// 	}) >= medPos){
+// 		console.log('hey');
+// 	}
+	
+// 	//return allAbove[0].age;
+	
+// }
+
+
 
 
 
